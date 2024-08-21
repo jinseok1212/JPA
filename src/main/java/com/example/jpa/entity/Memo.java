@@ -3,6 +3,8 @@ package com.example.jpa.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity //jpa가 Entity로 관리한다는 의미
 @Table(name = "MEMO") //MEMO테이블
@@ -29,8 +31,14 @@ public class Memo {
 
     //N:1
     //FK 컬럼명을 명시하지 않으면 Member 엔티티에 member_주키로 자동 생성됨
+//    @ManyToOne(fetch = FetchType.LAZY) //manyToOne 기본값은 EAGER
+//    @JoinColumn(name = "member_id") //Member엔티티의 주키를 member_id컬럼에 저장하겠다(FK)
+//    private Member member; //멤버 엔티티
+
+    //양방향 맵핑
     @ManyToOne
-    @JoinColumn(name = "member_id") //Member엔티티의 주키를 member_id컬럼에 저장하겠다(FK)
-    private Member member; //멤버 엔티티
+    @JoinColumn(name = "member_id")
+    private Member member;
+
 
 }
