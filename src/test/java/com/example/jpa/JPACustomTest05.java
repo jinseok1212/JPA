@@ -88,7 +88,7 @@ public class JPACustomTest05 {
     //원투매니방식
     @Test
     public void testCode08() {
-      Member m = memoRepository.otmJoin("abc1");
+      Member m = memoRepository.otmJoin1("abc1");
         System.out.println(m.toString());
     }
 
